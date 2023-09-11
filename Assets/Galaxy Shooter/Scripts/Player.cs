@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
 
 public bool canTripleShot = false;
 public bool isSpeedBoostActive = false;
+public int lives = 3;
+
+[SerializeField]
+private GameObject _explosionPrefab;
 
 [SerializeField]
 private GameObject _laserPrefab;
@@ -111,6 +115,17 @@ private void Movement()
 }
 
 }
+
+public void Damage()
+{
+lives--;
+    if (lives < 1)
+{
+    Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+    Destroy(this.gameObject);
+}
+}
+
 
 public void TripleShotPowerupOn()
 {
