@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
 
 public bool canTripleShot = false;
+public bool isSpeedBoostActive = false;
 
 [SerializeField]
 private GameObject _laserPrefab;
@@ -77,8 +78,20 @@ private void Movement()
     float horizontalInput = Input.GetAxis("Horizontal");
     float verticalInput = Input.GetAxis("Vertical");
 
+    if (isSpeedBoostActive == true)
+    {
+
+    transform.Translate(Vector3.right  * _speed * 1.5f * horizontalInput * Time.deltaTime);
+    transform.Translate(Vector3.up * _speed * 1.5f * verticalInput * Time.deltaTime);
+    }
+    else
+    {
     transform.Translate(Vector3.right  * _speed * horizontalInput * Time.deltaTime);
     transform.Translate(Vector3.up * _speed * verticalInput * Time.deltaTime);
+    }
+
+
+
 
      // If player on the y is greater than0 set player position 0
     if(transform.position.y > 0){
@@ -105,11 +118,23 @@ public void TripleShotPowerupOn()
     StartCoroutine(TripleShotPowerDownRoutine());
 }
 
+public void SpeedBoostPowerupOn()
+{
+isSpeedBoostActive = true;
+StartCoroutine(SpeedBoostDownRoutine());
+}
+
 
 public IEnumerator TripleShotPowerDownRoutine()
 {
     yield return new WaitForSeconds(5.0f);
     canTripleShot = false;
+}
+
+public IEnumerator SpeedBoostDownRoutine()
+{
+    yield return new WaitForSeconds(5.0f);
+    isSpeedBoostActive = false;
 }
 }
 
