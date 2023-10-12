@@ -36,7 +36,7 @@ private float _canFire = 0.0f;
 [SerializeField]
 private float _speed = 5.0f;
 
-
+private UIManager _uiManager;
 
 
  // Start is called before the first frame update
@@ -44,6 +44,13 @@ void Start()
 {
      //Reset Player Position
     transform.position = new Vector3(0,-3,0);
+
+    _uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+if (_uiManager != null)
+{
+    _uiManager.UpdateLives(lives);
+}
 
 }
 
@@ -129,6 +136,8 @@ public void Damage()
         return;
     }
 lives--;
+
+    _uiManager.UpdateLives(lives);
     if (lives < 1)
 {
     Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
