@@ -37,6 +37,7 @@ private int powerupID;
             } else if (powerupID == 2)
             {
             //Turn on the shield bool
+            player.enableShields();
             }
         }
 
