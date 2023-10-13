@@ -5,7 +5,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
 [SerializeField]
-private float _speed = 0.3f;
+private float _speed = 3.0f;
 [SerializeField]
 private int powerupID;
 
@@ -31,7 +31,7 @@ private int powerupID;
             }
             else if (powerupID == 1)
             {
-            //Turn on the speed 
+            //Turn on the speed
             player.SpeedBoostPowerupOn();
 
             } else if (powerupID == 2)
