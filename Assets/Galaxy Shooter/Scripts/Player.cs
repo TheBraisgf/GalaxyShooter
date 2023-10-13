@@ -37,6 +37,8 @@ private float _canFire = 0.0f;
 private float _speed = 5.0f;
 
 private UIManager _uiManager;
+private GameManager _gameManager;
+private SpawnManager _spawnManager;
 
 
  // Start is called before the first frame update
@@ -52,6 +54,16 @@ if (_uiManager != null)
     _uiManager.UpdateLives(lives);
 }
 
+    _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+    _spawnManager = GameObject.Find("Spawn_Manager").GetComponent<SpawnManager>();
+
+
+if (_spawnManager != null)
+{
+_spawnManager.StartSpawnRoutines();
+
+}
 }
 
 // Update is called once per frame
@@ -141,6 +153,8 @@ lives--;
     if (lives < 1)
 {
     Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
+    _gameManager.gameOver = true;
+    _uiManager.ShowTitleScreen();
     Destroy(this.gameObject);
 }
 }
