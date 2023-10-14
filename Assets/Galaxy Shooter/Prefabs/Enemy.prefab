@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyExplosionPrefab: {fileID: 6735508578258355178, guid: 655df1cb6e26a6f488eae342e43a9446, type: 3}
-  _speed: 0.5
+  _clip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc, type: 3}

@@ -39,6 +39,7 @@ private float _speed = 5.0f;
 private UIManager _uiManager;
 private GameManager _gameManager;
 private SpawnManager _spawnManager;
+private AudioSource _audioSource;
 
 
  // Start is called before the first frame update
@@ -64,6 +65,8 @@ if (_spawnManager != null)
 _spawnManager.StartSpawnRoutines();
 
 }
+
+_audioSource = GetComponent<AudioSource>();
 }
 
 // Update is called once per frame
@@ -96,6 +99,7 @@ private void Shoot()
     //Spawn laser
     Instantiate(_laserPrefab, transform.position + new Vector3(0, 0.88f, 0), Quaternion.identity);
     }
+        _audioSource.Play();
     _canFire = Time.time + _fireRate;
 }
 }

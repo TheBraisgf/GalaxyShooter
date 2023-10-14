@@ -9,8 +9,9 @@ public class EnemyAI : MonoBehaviour
 //3.0f
     private float _speed = 2.0f;
 
+    [SerializeField]
+    private AudioClip _clip;
     private UIManager _uiManager;
-
 
 
     // Start is called before the first frame update
@@ -42,6 +43,7 @@ private void OnTriggerEnter2D(Collider2D other)
         Destroy(other.gameObject);
         Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
         _uiManager.UpdateScore();
+        AudioSource.PlayClipAtPoint(_clip, Camera.main.transform.position, 1f);
         Destroy(this.gameObject);
     }
     else if (other.tag == "Player")
@@ -52,6 +54,8 @@ private void OnTriggerEnter2D(Collider2D other)
         {
             player.Damage();
             Instantiate(_enemyExplosionPrefab, transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(_clip, Camera.main.transform.position, 1f);
+
             Destroy(this.gameObject);
         }
     }

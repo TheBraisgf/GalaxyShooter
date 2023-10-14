@@ -9,6 +9,9 @@ private float _speed = 3.0f;
 [SerializeField]
 private int powerupID;
 
+[SerializeField]
+private AudioClip _clip;
+
     // Update is called once per frame
     void Update()
     {
@@ -46,7 +49,7 @@ private int powerupID;
             }
         }
 
-
+  AudioSource.PlayClipAtPoint(_clip, Camera.main.transform.position, 1f);
         //detroy powerUp
         Destroy(this.gameObject);
         }
