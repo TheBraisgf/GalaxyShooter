@@ -27,6 +27,8 @@ private GameObject _tripleShotPrefab;
 [SerializeField]
 private GameObject _shieldGameObject;
 
+[SerializeField]
+private GameObject[] _engines;
 
 [SerializeField]
 private float _fireRate = 0.25f;
@@ -41,6 +43,8 @@ private GameManager _gameManager;
 private SpawnManager _spawnManager;
 private AudioSource _audioSource;
 
+
+private int hitCount = 0;
 
  // Start is called before the first frame update
 void Start()
@@ -67,6 +71,7 @@ _spawnManager.StartSpawnRoutines();
 }
 
 _audioSource = GetComponent<AudioSource>();
+hitCount = 0;
 }
 
 // Update is called once per frame
@@ -146,10 +151,22 @@ private void Movement()
 public void Damage()
 {
 
+    
     if(shieldsActive == true){
         shieldsActive = false;
         _shieldGameObject.SetActive(false);
         return;
+    }
+    
+    hitCount++;
+
+    if (hitCount == 1)
+    {
+        _engines[0].SetActive(true);
+    }
+    else if (hitCount == 2)
+    {
+        _engines[1].SetActive(true);
     }
 lives--;
 
