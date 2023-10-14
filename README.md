@@ -21,20 +21,12 @@ Feel free to browse through this repository as I experiment with the code and de
 
 ## Roadmap
 
-- Spaceship:
-  Create the player object, movement script and bounds ✅
-  Create Speed Boost
-  Create Shield
+- Review gameplay and mechanics Aplha Version
+- Implement Touch Controls
+- Add new powerups
+- Add difficult behaviour
+- Add More enemies
+- Add exit screen
+- Add score table
+- Fix bugs
 
-- Guns:
-  Create Laser prefab and behaviour script ✅
-  Create Triple Shot Powerup
-
-- Enemies:
-  Create enemy prefab and behaviour script
-
-- FX
-  Create explosion animation
-  Add sounds
-
-- UI
