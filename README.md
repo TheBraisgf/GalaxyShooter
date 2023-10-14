@@ -21,7 +21,7 @@ Feel free to browse through this repository as I experiment with the code and de
 
 ## Roadmap
 
-- Review gameplay and mechanics Aplha Version
+- Review gameplay and mechanics Alpha Version
 - Implement Touch Controls
 - Add new powerups
 - Add difficult behaviour
